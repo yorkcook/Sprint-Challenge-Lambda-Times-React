@@ -3,16 +3,16 @@ import Tab from "./Tab";
 import PropTypes from "prop-types";
 
 const Tabs = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="tabs">
       <div className="topics">
         <span className="title">TRENDING TOPICS:</span>
         {props.tabs.map(() => (
           <Tab
-            changeSelected={props.changeSelected}
-            selectedTab={props.tabData}
-            tabs={props.tabs}
+            changeSelected={this.props.changeSelected}
+            selectedTab={this.props.tabData}
+            tabs={this.props.tabs}
           />
         ))}
 
