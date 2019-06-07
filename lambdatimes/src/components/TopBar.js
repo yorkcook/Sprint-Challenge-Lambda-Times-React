@@ -28,6 +28,7 @@ import styled from "styled-components";
 // };
 
 console.log("test");
+console.log("test");
 
 const BarTop = styled.div`
   width: 100%;
