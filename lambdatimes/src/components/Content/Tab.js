@@ -1,7 +1,7 @@
 import React from "react";
 
 const Tab = props => {
-  console.log(props);
+  // console.log(props);
 
   // selectedTab = props => {
   //   if (props.tab === props.selectedTab) {
