@@ -8,11 +8,11 @@ const Tabs = props => {
     <div className="tabs">
       <div className="topics">
         <span className="title">TRENDING TOPICS:</span>
-        {props.tabs.map(() => (
+        {props.tabs.map(tab => (
           <Tab
-            changeSelected={this.props.changeSelected}
-            selectedTab={this.props.tabData}
-            tabs={this.props.tabs}
+            changeSelected={props.changeSelected}
+            selectedTab={props.selectedTab}
+            tab={tab}
           />
         ))}
 

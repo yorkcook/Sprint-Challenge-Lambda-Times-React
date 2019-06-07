@@ -18,31 +18,31 @@ export default class Content extends Component {
 
   componentDidMount() {
     // Once the component has mounted, get the data and reflect that data on the state.
-    this.setState({ data: this.state.data });
+    this.setState({ tabs: tabData, cards: cardData });
   }
 
   changeSelected = tab => {
     // this function should take in the tab and update the state with the new tab.
-    this.setState({ [tab.target.name]: tab.target.value });
+    this.setState({ selected: tab });
   };
 
   filterCards = tab => {
-    /* Right now this function only returns the cards on state.
-      We're going to make this function more dynamic
-      by using it to filter out our cards for when a tab is selcted
-      
-      Notice that we're passing this function to our <Cards /> component below.
-      This function returns an array of cards, so we can just pass it down as such.
+    //   /* Right now this function only returns the cards on state.
+    //     We're going to make this function more dynamic
+    //     by using it to filter out our cards for when a tab is selcted
 
-      Your algorithim for the logic here is as follows: 
-        - if the selected tab is 'all' it should return all 
-          of the items from cardData. 
-        - else, it should only return those cards whose 'tab' matched this.state.selected.
-    */
-    if (tab === "all") {
-      return { cardData };
+    //     Notice that we're passing this function to our <Cards /> component below.
+    //     This function returns an array of cards, so we can just pass it down as such.
+
+    //     Your algorithim for the logic here is as follows:
+    //       - if the selected tab is 'all' it should return all
+    //         of the items from cardData.
+    //       - else, it should only return those cards whose 'tab' matched this.state.selected.
+    //   */
+    if (this.state.selected !== "all") {
+      return this.state.cards.filter(card => card.tab === this.state.selected);
     } else {
-      return tab === this.state.selected;
+      return this.state.cards;
     }
   };
 
@@ -56,7 +56,7 @@ export default class Content extends Component {
         */}
         <Tabs
           tabs={this.state.tabs}
-          selectedTab={tabData}
+          selectedTab={this.state.selected}
           changeSelected={this.changeSelected}
         />
         <Cards cards={this.filterCards()} />
